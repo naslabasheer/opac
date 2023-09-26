@@ -1,0 +1,9 @@
+<div>
+    <p *ngIf="isContentVisible">
+      This is the content you want to show when 'Show More' is clicked.
+    </p>
+    <button (click)="toggleContentVisibility()">
+      {{ isContentVisible ? 'Show Less':'Show More' }}
+    </button>
+  </div>
+  

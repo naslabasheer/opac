@@ -1,0 +1,224 @@
+<div class="main-body">
+    <div class="container-fluid" style="background-color: rgb(244,244,244);">
+        <div class="justify-content-center pt-3">
+            <div class="row">
+                <h1 class="text-center my-2" style="font-weight: 500;"> Embase QA Library </h1>
+            </div>
+
+        </div>
+        <div class="row justify-content-center mb-md-4 mb-1">
+            <div class="col-lg-5 col-md-8">
+                <div class="text-container active">
+                    <button mat-icon-button="" class="mat-focus-indicator mat-icon-button mat-button-base">
+                        <span class="mat-button-wrapper ">
+                            <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-nocolor"
+                                aria-hidden="true" data-mat-icon-type="font">search</mat-icon>
+                        </span>
+                        <span matripple="" class="mat-ripple mat-button-ripple mat-button-ripple-round"></span>
+                        <span class="mat-button-focus-overlay"></span>
+                    </button>
+                    <input placeholder="Search Title" class="name" name="PName" (input)="changeKeyValue($event)"
+                        [(ngModel)]="key">
+                    <div aria-haspopup="true" class="mat-menu-trigger selection">
+
+                       
+
+
+                        <select [(ngModel)]="value">
+
+                            <option *ngFor="let option of array;let i=index;" class="option" [value]="option">{{option}}
+                            </option>
+                        </select>
+
+
+
+                        <mat-menu yposition="below" xposition="before" class=""></mat-menu>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button mat-flat-button="" class="mat-focus-indicator search-button mat-flat-button mat-button-base"
+                    style="border: radius 50px;">
+                    <span class="mat-button-wrapper active" (click)="getBooks()"> Search </span>
+                    <span matripple="" class="mat-ripple mat-button-ripple"></span>
+                    <span class="mat-button-focus-overlay"></span>
+                </button>
+            </div>
+        </div>
+    
+    <div class="row-fluid">
+        <div class="row">
+            <div class="col-md-2 " style="">
+                <div class="search-data active">
+                    <span class="search-headers">Refined Search</span>
+                    <div mat-subheader="" class="mat-subheader">Author</div>
+
+                    <mat-list role="list" class='authors maxHeight maxWidth'>
+                        <mat-list-item role="listitem" *ngFor='let item of sliceArray(0,5)'
+                            (click)="changeAuthor(item?.first_name)"
+                            (click)="getBooks()">{{item.first_name}}</mat-list-item>
+
+
+                    </mat-list>
+
+                    <div class="button">
+                        <span class="show-less " (click)="toggleShowMore()">{{ showMoreContent ? 'Show Less' : 'Show More' }}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                    <mat-divider role="separator" class="mat-divider mat-divider-horizontal"
+                        aria-orientation="horizontal">
+
+                    </mat-divider>
+                    <div mat-subheader="" class="mat-subheader">Subject</div>
+
+                    <mat-list role="list" class='authors maxHeight maxWidth'>
+                        <mat-list-item role="listitem" *ngFor='let item of sliceArray2(0,5)'
+                            (click)='changeSubject(item?.book_subject)'>{{item.book_subject}}</mat-list-item>
+                    </mat-list>
+                    <div class="button">
+                        <span class="show-less " (click)="toggleShowMore()">{{ showMoreContent ? 'Show Less' : 'ShowMore' }}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="col-lg-10">
+                <div class="row" style="height: 43px;">
+                    <!-- <div class="co" style="height: 43px;"> -->
+                    <div class="row sidenav-content-head">
+                        <div class="col-lg-8 my-1 d-flex justify-content-between" *ngIf="key!=''">
+                            <span (click)="getBooks()" class="search-headers ng-star-inserted">Showing
+                                From{{from}}-{{total}} Books</span>
+                        </div>
+                        <!-- <div class="col-lg-4 my-1 d-flex align-items-center justify-content-between"> -->z
+                        <div class=" col-lg-5 d-flex align-items-center justify-content-end" style="margin-left: auto;">
+                            <mat-icon role="img"
+                                class="mat-icon notranslate mr-1 unavailable-books material-icons mat-icon-no-color"
+                                style="color: transparent; border-radius: 50%; height: 18px; width: 18px;"
+                                data-mat-icon-type="font">radio_button_unchecked</mat-icon>
+                            <span style="margin-left: 4px;">Book not available for loan</span>
+                        </div>
+
+
+                        <!-- </div> -->
+                    </div>
+                </div>
+
+                <div class="row sidenav-no-content" *ngIf="flag!=1">
+                    <div class="" style="height: 43px;">
+                        <!-- <div class="col-lg-8 my-1 d-flex justify-content-between"> -->
+                        <span _ngcontent-bks-c56="" class="search-headers ng-star-inserted">Recent searches</span>
+                    </div>
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center" style="width:100%">
+                        <span class="material-icons"
+                            style="color: rgb(224, 224, 224); font-size: 240px; text-align: center;margin-top:10vh;margin-left:70px">
+                            find_in_page </span>
+                        <h3 class="text-center" style="color: #959595;"> No recent searches </h3>
+                    </div>
+                </div>
+                <div class="col-12 d-flex flex-column justify-content-center align-items-center " *ngIf="key==''">
+                    <img src="assets/images/images4.png" style="color: grey;" *ngIf="flag!==0">
+                    <h3 class="text-center ng-star-inserted" style="color: #959595;" *ngIf="flag!==0"> No results found
+                        for the searcch,check the keyword and try again </h3>
+                </div>
+
+
+
+                <div class="row" *ngIf="key!=''">
+
+                    <div class="col-lg-4 col-md-6" *ngFor='let item of book_detailes'>
+
+                        <mat-card class="example-card" style="width: 100%; height: 160px; margin: 5px;">
+                            <button style="width:100%; height: 200px;  align-items: flex-start; border: none;"
+                                mat-button (click)="openDialog(item)">
+
+                                <div class="info-section" style="width:100%; ">
+
+                                    <img mat-card-sm-image src={{item.book_image_url}}
+                                        style="width: 100px; height: 100px;  border-radius: 5px; margin-right: 90%;">
+
+                                    <div class="col-md-8 book-info" style=" width: 60%; margin-left: 35%;">
+                                        <span class="book-title" style="font-weight: 600; ">{{item.book_title}}</span>
+                                        <span class="book-description"
+                                            style="font-weight: 500;font-size: 12px;">{{item.book_subject}}</span>
+                                        <div class="book-extra-info" style="height: 20px;padding: auto;">
+                                            <div>Author</div>
+                                            <div class="d-flex">
+                                                <span> : </span>
+                                                <div style="padding-left: 5px;">{{item.author}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="book-extra-info" style="height: 20px;padding: auto;">
+                                            <div>Publisher</div>
+                                            <div class="d-flex">
+                                                <span>:</span>
+                                                <div style="padding-left: 5px;">{{item.publisher_name}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="book-nos">
+                                    <span class="w-50">Call N0 : {{item.call_number}}</span>
+                                    <span class="w-50">ISBN : {{item.isbn_number}}</span>
+                                </div>
+                                <div class="book-nos">
+                                    <span class="w-50">DDC : {{item.ddc_id}}</span>
+                                    <span class="w-50">SUB DDC : {{item.ddc_sub_id}}</span>
+                                </div>
+
+
+
+                            </button>
+
+                        </mat-card>
+
+                    </div>
+
+                </div>
+
+
+                <div *ngFor="let item book_detailes">
+                    <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"
+                        aria-label="Select page">
+                    </mat-paginator>
+                </div>
+
+
+                <!-- <div class="pagination-controls">
+                        <button (click)="prevPage()" [disabled]="current_page === 1">Previous</button>
+                        <span>{{ current_page }} / {{ total }}</span>
+                        <button (click)="nextPage()" [disabled]="current_page === total">Next</button>
+                  </div>   -->
+
+
+
+                <!-- <div class="mt-8 my-5 flex-justify-center item"> <pagination-controls (pageChange)="total= $event">
+                        
+                     </pagination-controls></div>          -->
+
+
+
+                <!-- 
+                      <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                          <li class="page-item"><a class="page-link" href="#" *ngFor="let item of pagenumber">{{item}}</a></li>
+                          
+                          <li class="page-item"><a class="page-link" href=""(click)="nextValue()">Next</a></li>
+                        </ul>
+                      </nav>  -->
+</div>
+            </div>
+
+        </div>
+    </div>
+</div>

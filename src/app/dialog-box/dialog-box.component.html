@@ -1,0 +1,91 @@
+
+    <div mat-dialog-content style="border-radius: 20px;">
+    <div class="row">
+<div class= "col-md-6">
+<h4 mat-dialog-title>Title</h4>
+<h2 mat-dialog-subtitle>{{bookdata.book_title==null?"N/A":bookdata.book_title}}</h2>
+</div>
+<div class="col-md-6">
+    <h4 mat-dialog-title>Sub_Title</h4>
+        <h2 mat-dialog-subtitle>{{bookdata.book_sub_title==null?"N/A":bookdata.book_sub_title}}</h2>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Author</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.author==null?'N/A':bookdata.author}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Edition</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.edition==null?'N/A':bookdata.edition}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Volum</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.volume==null?"N/A":bookdata.volume}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Pages</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.pages==null?'N/A':bookdata.pages}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Accessiion no</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.accession_number==null?"N/A":bookdata.accession_number}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Pages no</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.pages==null?"N/A":bookdata.pages}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">ISBN number</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.isbn_number==null?"N/A":bookdata.isbn_number}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Subject</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.book_subject==null?"N/A":bookdata.book_subject}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Category</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.subject_category_name==0?"N/A":bookdata.subject_category_name}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Status</h4>
+            <h4 class="feild value" style="font-weight: 600;">{{bookdata.is_available == 0 ?"Not Available":"Available"}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Price</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.price==null?'N/A':bookdata.price}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Bill number</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.bill_number==null?'N/A':bookdata.bill_number}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Bill date</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.bill_date==null?"N/A":bookdata.bill_date}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Added date</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.created_on==null?'N/A':bookdata.created_on}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Publisher</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.publisher_name==null?'N/A':bookdata.publisher_name}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Year of Publication</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.year_of_publication==null?'N/A':bookdata.year_of_publication}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">DDC</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.ddc_id==null?'N/A':bookdata.ddc_id}}</h4>
+</div>
+<div class="col-md-4">
+    <h4 class="feild-name">Sub-DDC</h4>
+    <h4 class="feild value" style="font-weight: 600;">{{bookdata.ddc_sub_id==null?"N/A":bookdata.ddc_sub_id}}</h4>
+</div>
+<div mat-dialog-actions>
+    <button (click)="close()" mat-raised-button color="warn">Close</button>
+</div>
+
+
+
+</div>
+</div>
