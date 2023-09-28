@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpHeaders } from '@angular/common/http';
 import {NgxPaginationModule, PaginatePipe} from 'ngx-pagination';
@@ -18,9 +18,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { MatTableModule } from '@angular/material/table';
-import { ShowMoreLessComponent } from './show-more-less/show-more-less.component';
 import {MatDialogModule} from '@angular/material/dialog'
 import { MatDialogActions } from '@angular/material/dialog';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import{MatInputModule} from '@angular/material/input'
 
 
 
@@ -29,7 +31,8 @@ import { MatDialogActions } from '@angular/material/dialog';
   declarations: [
     AppComponent,
     ContainerComponent,
-    ShowMoreLessComponent,
+    
+  
     
     
     
@@ -52,6 +55,11 @@ import { MatDialogActions } from '@angular/material/dialog';
     MatDialogModule,
     MatPaginatorModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatSelectModule
+    
    
   
   
